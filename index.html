@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة المنتجات</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <div class="maintitlebar">
+            <p>السلع الناقصة</p>
+            <div class="circle" id="openModal">
+                <span class="plus">+</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <p>إضافة منتج جديد</p>
+            <input class="inputt" type="text" id="productName" placeholder="اسم المنتج">
+            <button id="addProductBtn">إضافة</button>
+        </div>
+    </div>
+
+    <div id="productList">
+<!-- عناصر المنتج الثابتة -->
+
+<div class="productcategory" id="مكسرات">
+
+    <span class="titl">مكسرات</span>
+
+
+
+<div class="product-item" onclick="toggleCheckbox(this)">
+    <input type="checkbox" class="product-checkbox">
+    <span class="product-name">منتج 1</span>
+    <div class="quantity-control">
+        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+        <span class="quantity">0</span>
+        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+    </div>
+</div>
+
+
+<div class="product-item" onclick="toggleCheckbox(this)">
+    <input type="checkbox" class="product-checkbox">
+    <span class="product-name">منتج 1</span>
+    <div class="quantity-control">
+        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+        <span class="quantity">0</span>
+        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+    </div>
+</div>
+
+<div class="product-item" onclick="toggleCheckbox(this)">
+    <input type="checkbox" class="product-checkbox">
+    <span class="product-name">منتج 1</span>
+    <div class="quantity-control">
+        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+        <span class="quantity">0</span>
+        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+    </div>
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+    </div>
+    <button class="sticky-button" id="sendWhatsAppBtn">-></button>
+
+    <script src="cordova.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
