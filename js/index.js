@@ -1,54 +1,76 @@
-// الحصول على العناصر
+// العناصر والبيانات المطلوبة
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("openModal");
 var span = document.getElementById("closeModal");
 var addProductBtn = document.getElementById("addProductBtn");
 var productList = document.getElementById("productList");
 var sendWhatsAppBtn = document.getElementById("sendWhatsAppBtn");
+var categoryDropdown = document.getElementById("categoryDropdown");
+var newCategoryInput = document.getElementById("newCategory");
 
-// تحميل المنتجات المحفوظة عند تحميل الصفحة
-document.addEventListener("DOMContentLoaded", loadProducts);
+var categories = ["المتبقي","اغراض","مشتقات الحليب","اغراض البوظة","ملون","بيري","شوكلاتات", "مكسرات"]; // التصنيفات المبدئية
 
-// عندما ينقر المستخدم على الدائرة
+// تحميل التصنيفات عند تحميل الصفحة
+document.addEventListener("DOMContentLoaded", function() {
+    loadCategories();
+});
+
+// عرض النافذة المنبثقة
 btn.onclick = function() {
-    modal.style.display = "flex"; // إظهار النافذة المنبثقة
+    modal.style.display = "flex";
 }
 
-// عندما ينقر المستخدم على زر الإغلاق
+// إغلاق النافذة المنبثقة
 span.onclick = function() {
-    modal.style.display = "none"; // إخفاء النافذة المنبثقة
+    modal.style.display = "none";
 }
 
-// عندما ينقر المستخدم في أي مكان خارج النافذة المنبثقة
+// إغلاق النافذة المنبثقة عند النقر خارجها
 window.onclick = function(event) {
     if (event.target == modal) {
-        modal.style.display = "none"; // إخفاء النافذة المنبثقة
+        modal.style.display = "none";
     }
 }
 
 // إضافة منتج جديد
 addProductBtn.onclick = function() {
     var productName = document.getElementById("productName").value;
-    if (productName) {
-        addProduct(productName);
-        saveProduct(productName);
-        document.getElementById("productName").value = ""; // تفريغ الحقل
-        modal.style.display = "none"; // إخفاء النافذة المنبثقة
+    var selectedCategory = categoryDropdown.value;
+    var newCategory = newCategoryInput.value;
+
+    var category = newCategory ? newCategory : selectedCategory;
+
+    if (productName && category) {
+        addProduct(productName, category, 0);
+        saveProduct(productName, category, 0);
+        if (newCategory) {
+            categories.push(newCategory);
+            saveCategories();
+            loadCategories();
+        }
+        document.getElementById("productName").value = "";
+        newCategoryInput.value = "";
+        modal.style.display = "none";
     }
 }
 
-function toggleCheckbox(element) {
-    var checkbox = element.querySelector(".product-checkbox");
-    checkbox.checked = !checkbox.checked;
-}
+// إضافة منتج إلى قائمة العرض تحت التصنيف المناسب
+function addProduct(name, category, quantity) {
+    var categoryDiv = document.getElementById(category);
 
-// إضافة منتج إلى قائمة العرض
-function addProduct(name, quantity = 0) {
+    if (!categoryDiv) {
+        categoryDiv = document.createElement("div");
+        categoryDiv.id = category;
+        categoryDiv.className = "category-section";
+        categoryDiv.innerHTML = `<h3>${category}</h3>`;
+        productList.appendChild(categoryDiv);
+    }
+
     var productItem = document.createElement("div");
     productItem.className = "product-item";
     productItem.innerHTML = `
         <input type="checkbox" class="product-checkbox">
-        <span class="product-name">${name}</span>
+        <span>${name}</span>
         <div class="quantity-control">
             <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
             <span class="quantity">${quantity}</span>
@@ -57,49 +79,58 @@ function addProduct(name, quantity = 0) {
     `;
 
     productItem.onclick = function(event) {
-        if (event.target.tagName !== "INPUT" && !event.target.classList.contains("quantity-btn")) {
+        if (event.target.tagName !== "INPUT") {
             var checkbox = this.querySelector(".product-checkbox");
             checkbox.checked = !checkbox.checked;
         }
     };
-    productList.appendChild(productItem);
+
+    categoryDiv.appendChild(productItem);
 }
 
-// تعديل الكمية
-function changeQuantity(button, change) {
-    var quantityElement = button.parentNode.querySelector(".quantity");
-    var quantity = parseInt(quantityElement.textContent);
-    quantity = Math.max(0, quantity + change); // لا تسمح بالعدد السالب
-    quantityElement.textContent = quantity;
+// تغيير الكمية
+function changeQuantity(button, delta) {
+    var quantitySpan = button.parentNode.querySelector(".quantity");
+    var quantity = parseInt(quantitySpan.textContent) + delta;
+    if (quantity >= 0) {
+        quantitySpan.textContent = quantity;
+    }
 }
 
 // حفظ المنتج في localStorage
-function saveProduct(name) {
+function saveProduct(name, category, quantity) {
     var products = JSON.parse(localStorage.getItem("products")) || [];
-    products.push({ name: name, quantity: 0 });
+    products.push({ name: name, category: category, quantity: quantity });
     localStorage.setItem("products", JSON.stringify(products));
 }
 
-// تحميل المنتجات المحفوظة من localStorage
-function loadProducts() {
-    var products = JSON.parse(localStorage.getItem("products")) || [];
-    products.forEach(function(product) {
-        addProduct(product.name, product.quantity);
+// تحميل التصنيفات من localStorage
+function loadCategories() {
+    categoryDropdown.innerHTML = "";
+    categories.forEach(function(category) {
+        var option = document.createElement("option");
+        option.text = category;
+        option.value = category;
+        categoryDropdown.appendChild(option);
     });
 }
 
+function toggleCheckbox(element) {
+    var checkbox = element.querySelector(".product-checkbox");
+    checkbox.checked = !checkbox.checked;
+}
 // إرسال أسماء المنتجات المختارة عبر واتساب
 sendWhatsAppBtn.onclick = function() {
     var selectedProducts = [];
     var checkboxes = document.querySelectorAll(".product-checkbox");
     checkboxes.forEach(function(checkbox) {
         if (checkbox.checked) {
-            var productName = checkbox.nextElementSibling.textContent;
             var quantity = checkbox.parentNode.querySelector(".quantity").textContent;
+            var name = checkbox.nextElementSibling.textContent;
             if (quantity > 0) {
-                selectedProducts.push(`${productName} (${quantity})`);
+                selectedProducts.push(`${name}  (${quantity})`);
             } else {
-                selectedProducts.push(productName);
+                selectedProducts.push(`${name} `);
             }
         }
     });

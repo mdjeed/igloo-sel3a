@@ -1,100 +1,732 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إدارة المنتجات</title>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" href="css/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <title>igloo-system</title>
 </head>
 <body>
     <div class="app">
         <div class="maintitlebar">
-            <p>السلع الناقصة</p>
+            <p>سلعة الناقصة</p>
             <div class="circle" id="openModal">
                 <span class="plus">+</span>
             </div>
         </div>
-    </div>
+        <div id="productList">
+            <!-- تصنيف 1 -->
+            <div id="شوكلاتات" class="category-section">
+                <h3>شكولاتات</h3>
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>شكولا سوداء</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>  شكولا بيضاء</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
 
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>  شكولا بالحليب</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>  شكولا مرجان سوداء</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>  شكولا مرجان بيضاء</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span> 
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>  شكولا بيضاء</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+            </div>
+            <!-- تصنيف 2 -->
+            <div id="مكسرات" class="category-section">
+                <h3>مكسرات</h3>
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span> كاوكاو</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span> بيستاش</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span> لوز اسود</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span> لوز ايفيلي</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span> بندق</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <div id="بيري" class="category-section">
+                <h3>بيري فواكه</h3>
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span> بيري فراولة</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span> بيري ليمون</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span> بيري كرز </span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>  بيري توت</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span> بيري كاسيس</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span> بيري كاسيس</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span> بيري مانحا</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span> perre fruit de la pasion</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+            <div id="ملون" class="category-section">
+                <h3> ملون </h3>
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>  ملون اصفر</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>  ملون اخضر</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span> ملون بيستاشي </span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+            <div id="pate" class="category-section">
+                <h3> pate </h3>
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>   pate pistache</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>   pate caramel</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span> pate biscits </span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>  pate oreo </span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>  pate lutus    </span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+            <div id="اغراض البوظة" class="category-section">
+                <h3> اغراض البوظة </h3>
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>    حليب%26</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>    حليب%0</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span> كاكاو  </span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>  كاكاو كالبو  </span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>  دكستروز  </span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>  كريم فريش بطوشٍ  </span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+            <div id="مشتقات الحليب" class="category-section">
+                <h3> مشتقات الحليب  </h3>
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>فرماج</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>  زبدة</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span> مرغارين فلوريال  </span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>  كريم فريش  </span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>  ماسكربون    </span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+
+
+            <div id="اغراض" class="category-section">
+                <h3> اغراض  </h3>
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>ورق الزبدة</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>  pouches jetable</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>  soustasse noir  </span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span> roll carton  </span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>  المينيوم    </span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>  ورق شفاف    </span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>  الغاز     </span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>  pouche قماش كبيرة  </span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>caisatte crem brulee</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span> كيسات فوندون </span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+ 
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>  ورق قيتار </span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+            </div>
+
+
+            <div id="المتبقي" class="category-section">
+                <h3> المتبقي  </h3>
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>بسكويت فينغر </span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>   بيسكوي lutus</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>  زبدة الفول السوداني</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span> شانتي   </span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>  سكر قلاسي    </span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>   جيلاتين</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>  بيكتين     </span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>   فانيلا</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>  boudoirs</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>  خميرة كيميائية </span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+ 
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>   feuilltine </span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>   مايزينا </span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>   زبدة كاكاو </span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+                <div class="product-item" onclick="toggleCheckbox(this)">
+                    <input type="checkbox" class="product-checkbox">
+                    <span>     فرينة</span>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+            </div>
+
+        </div>
+    </div>
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close" id="closeModal">&times;</span>
             <p>إضافة منتج جديد</p>
             <input class="inputt" type="text" id="productName" placeholder="اسم المنتج">
+            <select id="categoryDropdown"></select>
+            <input class="inputt" type="text" id="newCategory" placeholder="تصنيف جديد">
             <button id="addProductBtn">إضافة</button>
         </div>
     </div>
-
-    <div id="productList">
-<!-- عناصر المنتج الثابتة -->
-
-<div class="productcategory" id="مكسرات">
-
-    <span class="titl">مكسرات</span>
-
-
-
-<div class="product-item" onclick="toggleCheckbox(this)">
-    <input type="checkbox" class="product-checkbox">
-    <span class="product-name">منتج 1</span>
-    <div class="quantity-control">
-        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
-        <span class="quantity">0</span>
-        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
-    </div>
-</div>
-
-
-<div class="product-item" onclick="toggleCheckbox(this)">
-    <input type="checkbox" class="product-checkbox">
-    <span class="product-name">منتج 1</span>
-    <div class="quantity-control">
-        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
-        <span class="quantity">0</span>
-        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
-    </div>
-</div>
-
-<div class="product-item" onclick="toggleCheckbox(this)">
-    <input type="checkbox" class="product-checkbox">
-    <span class="product-name">منتج 1</span>
-    <div class="quantity-control">
-        <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
-        <span class="quantity">0</span>
-        <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
-    </div>
-</div>
-
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
-
-
-    </div>
     <button class="sticky-button" id="sendWhatsAppBtn">-></button>
-
     <script src="cordova.js"></script>
     <script src="js/index.js"></script>
 </body>
