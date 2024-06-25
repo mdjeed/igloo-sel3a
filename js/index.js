@@ -13,6 +13,7 @@ var categories = JSON.parse(localStorage.getItem("categories")) || ["المتب�
 // تحميل التصنيفات عند تحميل الصفحة
 document.addEventListener("DOMContentLoaded", function() {
     loadCategories();
+    loadProducts(); // تحميل المنتجات المحفوظة عند تحميل الصفحة
 });
 
 // عرض النافذة المنبثقة
@@ -42,10 +43,10 @@ addProductBtn.onclick = function() {
 
     if (productName && category) {
         addProduct(productName, category, 0);
-        saveProduct(productName, category, 0);
+        saveProduct(productName, category, 0); // حفظ المنتج الجديد
         if (newCategory) {
             categories.push(newCategory);
-            saveCategories();
+            saveCategories(); // حفظ التصنيفات الجديدة
             loadCategories();
         }
         document.getElementById("productName").value = "";
@@ -117,6 +118,14 @@ function loadCategories() {
         option.text = category;
         option.value = category;
         categoryDropdown.appendChild(option);
+    });
+}
+
+// تحميل المنتجات من localStorage عند تحميل الصفحة
+function loadProducts() {
+    var products = JSON.parse(localStorage.getItem("products")) || [];
+    products.forEach(function(product) {
+        addProduct(product.name, product.category, product.quantity);
     });
 }
 
