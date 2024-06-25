@@ -1,4 +1,3 @@
-// العناصر والبيانات المطلوبة
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("openModal");
 var span = document.getElementById("closeModal");
@@ -8,7 +7,8 @@ var sendWhatsAppBtn = document.getElementById("sendWhatsAppBtn");
 var categoryDropdown = document.getElementById("categoryDropdown");
 var newCategoryInput = document.getElementById("newCategory");
 
-var categories = ["المتبقي","اغراض","مشتقات الحليب","اغراض البوظة","ملون","بيري","شوكلاتات", "مكسرات"]; // التصنيفات المبدئية
+// تحميل التصنيفات من localStorage أو استخدام التصنيفات المبدئية
+var categories = JSON.parse(localStorage.getItem("categories")) || ["المتبقي", "اغراض", "مشتقات الحليب", "اغراض البوظة", "ملون", "بيري", "شوكلاتات", "مكسرات"];
 
 // تحميل التصنيفات عند تحميل الصفحة
 document.addEventListener("DOMContentLoaded", function() {
@@ -104,6 +104,11 @@ function saveProduct(name, category, quantity) {
     localStorage.setItem("products", JSON.stringify(products));
 }
 
+// حفظ التصنيفات في localStorage
+function saveCategories() {
+    localStorage.setItem("categories", JSON.stringify(categories));
+}
+
 // تحميل التصنيفات من localStorage
 function loadCategories() {
     categoryDropdown.innerHTML = "";
@@ -119,6 +124,7 @@ function toggleCheckbox(element) {
     var checkbox = element.querySelector(".product-checkbox");
     checkbox.checked = !checkbox.checked;
 }
+
 // إرسال أسماء المنتجات المختارة عبر واتساب
 sendWhatsAppBtn.onclick = function() {
     var selectedProducts = [];
@@ -128,9 +134,9 @@ sendWhatsAppBtn.onclick = function() {
             var quantity = checkbox.parentNode.querySelector(".quantity").textContent;
             var name = checkbox.nextElementSibling.textContent;
             if (quantity > 0) {
-                selectedProducts.push(`${name}  (${quantity})`);
+                selectedProducts.push(`${name} (${quantity})`);
             } else {
-                selectedProducts.push(`${name} `);
+                selectedProducts.push(`${name}`);
             }
         }
     });
