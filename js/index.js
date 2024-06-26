@@ -8,7 +8,7 @@ var categoryDropdown = document.getElementById("categoryDropdown");
 var newCategoryInput = document.getElementById("newCategory");
 
 // تحميل التصنيفات من localStorage أو استخدام التصنيفات المبدئية
-var categories = JSON.parse(localStorage.getItem("categories")) || ["المتبقي", "اغراض", "مشتقات الحليب", "اغراض البوظة", "ملون", "بيري", "شوكلاتات", "مكسرات"];
+var categories = JSON.parse(localStorage.getItem("categories")) || ["سلعة الكونتوار","pate","المتبقي", "اغراض", "مشتقات الحليب", "اغراض البوظة", "ملون", "بيري", "شوكلاتات", "مكسرات"];
 
 // تحميل التصنيفات عند تحميل الصفحة
 document.addEventListener("DOMContentLoaded", function() {
