@@ -150,7 +150,7 @@ sendWhatsAppBtn.onclick = function() {
         }
     });
     if (selectedProducts.length > 0) {
-        var message = "السلع الناقصة: " + selectedProducts.join(", ");
+        var message = "السلع الناقصة: " +"\n"+ selectedProducts.join("\n");
         var whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
     } else {
