@@ -73,9 +73,9 @@ function addProduct(name, category, quantity) {
         <input type="checkbox" class="product-checkbox">
         <span>${name}</span>
         <div class="quantity-control">
-            <button class="quantity-btn" onclick="changeQuantity(this, -1)">&#9660;</button>
+            <button class="quantity-btn" onclick="changeQuantity(event, this, -1)">&#9660;</button>
             <span class="quantity">${quantity}</span>
-            <button class="quantity-btn" onclick="changeQuantity(this, 1)">&#9650;</button>
+            <button class="quantity-btn" onclick="changeQuantity(event, this, 1)">&#9650;</button>
         </div>
     `;
 
@@ -90,8 +90,11 @@ function addProduct(name, category, quantity) {
 }
 
 // تغيير الكمية
-function changeQuantity(button, delta) {
+function changeQuantity(event,button, delta) {
+
+event.stopPropagation();
     var quantitySpan = button.parentNode.querySelector(".quantity");
+
     var quantity = parseInt(quantitySpan.textContent) + delta;
     if (quantity >= 0) {
         quantitySpan.textContent = quantity;
